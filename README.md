@@ -9,5 +9,5 @@ rm -rf ~/.config/nvim/lua/custom
 
 Clone this repo in custom folder:
 ```bash
-git clone https://github.com/hackmad/nvchad_config ~/.config/nvim/lua/custom
+git clone https://github.com/hackmad/nvchad-config ~/.config/nvim/lua/custom
 ```
