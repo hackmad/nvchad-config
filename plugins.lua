@@ -42,17 +42,6 @@ local plugins = {
     cmd = "Git",
   },
 
-  -- Configure telescope dependencies.
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    config = function()
-      require("telescope").load_extension("flutter")
-    end,
-  },
-
   -- Install plugins
   { "cdelledonne/vim-cmake" },
 
@@ -71,7 +60,8 @@ local plugins = {
       "natebosch/vim-lsc-dart",
     },
     config = function()
-      require("flutter-tools").setup {}
+      require("flutter-tools").setup{}
+      require("telescope").load_extension("flutter")
     end,
   },
 
