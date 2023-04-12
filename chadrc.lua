@@ -9,6 +9,7 @@ M.ui = {
     Comment = { fg = "#40e060" },
     LineNr = { fg = "#a0ffa0" },
     CursorLineNr = { fg = "#ff8080" },
+    ColorColumn = { bg = "#303030" },
   },
 }
 
