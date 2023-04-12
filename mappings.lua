@@ -1,6 +1,6 @@
 local M = {}
 
-M.custom = {
+M.spectre = {
   n = {
      ["<leader>S"] = {"<cmd>lua require('spectre').open()<CR>", "Open Spectre"},
      ["<leader>sw"] = {"<cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Search current word"},
@@ -9,6 +9,12 @@ M.custom = {
   v = {
      ["<leader>sw"] = {"<esc><cmd>lua require('spectre').open_visual()<CR>", "Search current word"},
   },
+}
+
+M.lazy = {
+  n = {
+     ["<leader>l"] = {":Lazy<CR>", "Open Lazy"},
+  }
 }
 
 return M
