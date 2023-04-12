@@ -2,8 +2,12 @@
 
 First [install NvChad](https://nvchad.com/docs/quickstart/install)
 
-Clone this repo in custom folder:
+Remove custom folder:
+```bash
+rm -rf ~/.config/nvim/lua/custom
+```
 
+Clone this repo in custom folder:
 ```bash
 git clone https://github.com/hackmad/nvchad_config ~/.config/nvim/lua/custom
 ```
