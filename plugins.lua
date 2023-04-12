@@ -38,24 +38,41 @@ local plugins = {
   },
 
   {
-    "telescope.nvim",
-    opts = overrides.telescope,
-  },
-
-  {
     "tpope/vim-fugitive",
     cmd = "Git",
+  },
+
+  -- Configure telescope dependencies.
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      require("telescope").load_extension("flutter")
+    end,
   },
 
   -- Install plugins
   { "cdelledonne/vim-cmake" },
 
   { "dart-lang/dart-vim-plugin" },
+  { "thosakwe/vim-flutter" },
   { "natebosch/vim-lsc" },
   { "natebosch/vim-lsc-dart" },
   {
     "akinsho/flutter-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    lazy = false, -- TODO automatically detect Flutter projects and load it.
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "dart-lang/dart-vim-plugin",
+      "thosakwe/vim-flutter",
+      "natebosch/vim-lsc",
+      "natebosch/vim-lsc-dart",
+    },
+    config = function()
+      require("flutter-tools").setup {}
+    end,
   },
 
   {
@@ -71,7 +88,7 @@ local plugins = {
       "nvim-lua/plenary.nvim",
       "mfussenegger/nvim-dap",
     },
-    ft = { "sbt", "scala" },
+    ft = { "sbt", "scala" }, -- TODO automatically detect SBT projects and load it.
     config = function()
       local metals_config = require("metals").bare_config()
 

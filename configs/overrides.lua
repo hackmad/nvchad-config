@@ -2,9 +2,10 @@ local M = {}
 
 M.treesitter = {
   ensure_installed = {
-    "bash", "cpp", "dart", "go", "html", "javascript", "json", "lua", "markdown",
-    "markdown_inline", "python", "query", "regex", "rust", "scala", "terraform",
-    "tsx", "typescript", "vim", "yaml",
+    "bash", "cpp", "dart", "git_config", "git_rebase", "gitattributes", "gitcommit",
+    "gitignore", "go", "html", "javascript", "json", "lua", "markdown", "markdown_inline",
+    "python", "query", "regex", "rust", "scala", "terraform", "tsx", "typescript",
+    "vim", "yaml",
   },
   indent = {
     enable = true,
@@ -61,16 +62,6 @@ M.nvimtree = {
         modified = true,
       },
     },
-  },
-}
-
-M.telescope = {
-  dependencies = {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    build = "make",
-    config = function()
-      require("telescope").load_extension("fzf")
-    end,
   },
 }
 
