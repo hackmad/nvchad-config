@@ -1,4 +1,8 @@
-local null_ls = require "null-ls"
+local present, null_ls = pcall(require, "null-ls")
+
+if not present then
+  return
+end
 
 local formatting = null_ls.builtins.formatting
 local lint = null_ls.builtins.diagnostics

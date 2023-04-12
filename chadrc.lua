@@ -1,7 +1,8 @@
 ---@type ChadrcConfig 
 local M = {}
 
-M.plugins = "custom.plugins"
+-- Path to overriding theme and highlights files
+local highlights = require "custom.highlights"
 
 M.ui = {
   theme = 'ayu_dark',
@@ -12,6 +13,8 @@ M.ui = {
     ColorColumn = { bg = "#303030" },
   },
 }
+
+M.plugins = "custom.plugins"
 
 M.mappings = require "custom.mappings"
 
