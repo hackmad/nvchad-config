@@ -37,12 +37,37 @@ local plugins = {
     opts = overrides.nvimtree,
   },
 
+  -- Install plugins
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    opts = {
+      enable = true,
+      max_lines = 0,
+      trim_scope = "outer",
+      min_window_height = 0,
+      patterns = {
+        default = {
+          "class", "function", "method", "for", "while", "if", "switch", "case",
+        },
+        rust = {
+          "impl_item", "struct", "enum", "function", "method", "loop", "for",
+          "while", "if", "match"
+        },
+        markdown = { "section" },
+        json = { "pair" },
+        yaml = { "block_mapping_pair" },
+      },
+      zindex = 20, -- The Z-index of the context window
+      mode = "cursor", -- Line used to calculate context. Choices: "cursor", "topline"
+      separator = nil,
+    },
+  },
+
   {
     "tpope/vim-fugitive",
     cmd = "Git",
   },
 
-  -- Install plugins
   { "cdelledonne/vim-cmake" },
 
   { "dart-lang/dart-vim-plugin" },
@@ -68,9 +93,10 @@ local plugins = {
   {
     "iamcco/markdown-preview.nvim",
     ft = "markdown",
-    -- build = "cd app && yarn install",
     build = ":call mkdp#util#install()",
   },
+
+  { "hashivim/vim-terraform" },
 
   {
     "scalameta/nvim-metals",
@@ -139,33 +165,6 @@ local plugins = {
       require("spectre").setup()
     end,
   },
-
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    opts = {
-      enable = true,
-      max_lines = 0,
-      trim_scope = "outer",
-      min_window_height = 0,
-      patterns = {
-        default = {
-          "class", "function", "method", "for", "while", "if", "switch", "case",
-        },
-        rust = {
-          "impl_item", "struct", "enum", "function", "method", "loop", "for",
-          "while", "if", "match"
-        },
-        markdown = { "section" },
-        json = { "pair" },
-        yaml = { "block_mapping_pair" },
-      },
-      zindex = 20, -- The Z-index of the context window
-      mode = "cursor", -- Line used to calculate context. Choices: "cursor", "topline"
-      separator = nil,
-    },
-  },
-
-  { "hashivim/vim-terraform" },
 
   -- Disable plugins
   -- {
