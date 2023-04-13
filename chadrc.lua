@@ -13,12 +13,13 @@ M.ui = {
   lsp_semantic_tokens = true,
 
   hl_override = {
-    Comment = { fg = "#40e060" },
+    Comment = { fg = "#00d060" },
     LineNr = { fg = "#a0ffa0" },
     CursorLineNr = { fg = "#ff8080" },
     ColorColumn = { bg = "#303030" },
-    TbLineBufOn = { fg = "#ffffff" },
+    TbLineBufOn = { fg = "white" },
     TbLineBufOff = { fg = "#b0b0b0" },
+    Visual = { bg = "orange", fg = "black" },
   }
 }
 
