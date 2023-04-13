@@ -19,7 +19,7 @@ M.ui = {
     ColorColumn = { bg = "#303030" },
     TbLineBufOn = { fg = "white" },
     TbLineBufOff = { fg = "#b0b0b0" },
-    Visual = { bg = "orange", fg = "black" },
+    Visual = { bg = "grey", fg = "#ffe5b4" },
   }
 }
 

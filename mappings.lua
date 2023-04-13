@@ -44,4 +44,10 @@ M.buffer = {
   },
 }
 
+M.disabled = {
+  n = {
+    ["<Esc>"] = "", -- originally it does ":noh<cr>" but noice command line pops which is annoying.
+  },
+}
+
 return M
