@@ -41,13 +41,22 @@ M.buffer = {
       end,
       "close buffer",
     },
+
+    -- remap escape key from ":noh<cr>" to use lua to stop the highlighting for the 'hlsearch' option.
+    -- this way noice cmdline stops popping up which is annoying.
+    ["<Esc>"] = {
+      function()
+        vim.api.nvim_command("nohlsearch")
+      end,
+      "clear search highlight",
+    }
   },
 }
 
 M.disabled = {
-  n = {
-    ["<Esc>"] = "", -- originally it does ":noh<cr>" but noice command line pops which is annoying.
-  },
+  --n = {
+  --  ["<Esc>"] = "",
+  --},
 }
 
 return M
