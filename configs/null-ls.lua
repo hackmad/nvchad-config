@@ -4,25 +4,13 @@ if not present then
   return
 end
 
-local formatting = null_ls.builtins.formatting
-local lint = null_ls.builtins.diagnostics
-local code_actions = null_ls.builtins.code_actions
-local completion = null_ls.builtins.completion
-
 local sources = {
-  formatting.prettier,
-  formatting.rustfmt,
-  formatting.scalafmt,
-  formatting.stylua,
+  null_ls.builtins.formatting.prettier,
+  null_ls.builtins.formatting.rustfmt,
+  null_ls.builtins.formatting.scalafmt,
+  null_ls.builtins.formatting.stylua,
 
-  lint.shellcheck,
-
-  code_actions.gitsigns,
-  code_actions.gomodifytags,
-  code_actions.impl,
-
-  completion.luasnip,
-  completion.spell,
+  null_ls.builtins.code_actions.gitsigns,
 }
 
 null_ls.setup {

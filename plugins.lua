@@ -1,4 +1,4 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -21,21 +21,17 @@ local plugins = {
     end,
   },
 
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require "custom.configs.indent-blankline"
+    end,
+  },
+
   -- Override plugin configs
-  {
-    "williamboman/mason.nvim",
-    opts = overrides.mason
-  },
-
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = overrides.treesitter,
-  },
-
-  {
-    "nvim-tree/nvim-tree.lua",
-    opts = overrides.nvimtree,
-  },
+  { "williamboman/mason.nvim", opts = overrides.mason },
+  { "nvim-treesitter/nvim-treesitter", opts = overrides.treesitter },
+  { "nvim-tree/nvim-tree.lua", opts = overrides.nvimtree },
 
   -- Install plugins
   {
@@ -118,7 +114,7 @@ local plugins = {
       metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       -- Debug settings if you're using nvim-dap
-      local dap = require("dap")
+      local dap = require "dap"
 
       dap.configurations.scala = {
         {
@@ -168,7 +164,9 @@ local plugins = {
 
   {
     "folke/trouble.nvim",
-    requires = "nvim-tree/nvim-web-devicons",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
     config = function()
       require("trouble").setup {
         auto_open = false,
@@ -176,6 +174,39 @@ local plugins = {
         mod = "document_diagnosis",
       }
     end
+  },
+
+  {
+    "rcarriga/nvim-notify",
+    lazy = false,
+    config = function()
+      local notify = require "notify"
+      notify.setup {
+        stages = "static",
+      }
+      vim.notify = notify
+    end,
+  },
+  {
+    "mrded/nvim-lsp-notify",
+    dependencies = {
+      "rcarriga/nvim-notify",
+    },
+    config = function()
+      require("lsp-notify").setup {
+        icons = false,
+      }
+    end,
+  },
+
+  { "MunifTanjim/nui.nvim" },
+  {
+    "folke/noice.nvim",
+    lazy = false,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+    -- config for noice is in lspconfig so signature/hover won't conflict with nvchad
   },
 
   -- Disable plugins
