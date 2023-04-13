@@ -40,6 +40,8 @@ require("noice").setup {
           { event = "msg_show", kind = "", find = "Scratch" },
           { event = "msg_show", kind = "", find = "NvimTree" },
           { event = "msg_show", kind = "", find = "Modified" },
+          { event = "msg_show", kind = "", find = "[0-9]+L, [0-9]+B" },
+          { event = "msg_show", kind = "", find = "line [0-9]+ of [0-9]+" },
         },
       },
       opts = { skip = true },
