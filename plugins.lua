@@ -166,6 +166,18 @@ local plugins = {
     end,
   },
 
+  {
+    "folke/trouble.nvim",
+    requires = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {
+        auto_open = false,
+        auto_close = false,
+        mod = "document_diagnosis",
+      }
+    end
+  },
+
   -- Disable plugins
   -- {
   --   "NvChad/nvim-colorizer.lua",
