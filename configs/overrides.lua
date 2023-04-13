@@ -31,7 +31,6 @@ M.nvimtree = {
 
   filters = {
     dotfiles = false,
-    exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
   },
 
   modified = {
