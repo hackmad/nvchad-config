@@ -36,6 +36,7 @@ local plugins = {
   -- Install plugins
   {
     "nvim-treesitter/nvim-treesitter-context",
+    lazy = false,
     opts = {
       enable = true,
       max_lines = 0,
@@ -43,11 +44,26 @@ local plugins = {
       min_window_height = 0,
       patterns = {
         default = {
-          "class", "function", "method", "for", "while", "if", "switch", "case",
+          "class",
+          "function",
+          "method",
+          "for",
+          "while",
+          "if",
+          "switch",
+          "case",
         },
         rust = {
-          "impl_item", "struct", "enum", "function", "method", "loop", "for",
-          "while", "if", "match"
+          "impl_item",
+          "struct",
+          "enum",
+          "function",
+          "method",
+          "loop",
+          "for",
+          "while",
+          "if",
+          "match",
         },
         markdown = { "section" },
         json = { "pair" },
@@ -81,8 +97,8 @@ local plugins = {
       "natebosch/vim-lsc-dart",
     },
     config = function()
-      require("flutter-tools").setup{}
-      require("telescope").load_extension("flutter")
+      require("flutter-tools").setup {}
+      require("telescope").load_extension "flutter"
     end,
   },
 
@@ -173,7 +189,7 @@ local plugins = {
         auto_close = false,
         mod = "document_diagnosis",
       }
-    end
+    end,
   },
 
   {
@@ -214,7 +230,6 @@ local plugins = {
   --   "NvChad/nvim-colorizer.lua",
   --   enabled = false
   -- },
-
 }
 
 return plugins
