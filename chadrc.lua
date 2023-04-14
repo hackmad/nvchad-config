@@ -14,8 +14,8 @@ M.ui = {
 
   hl_override = {
     Comment = { fg = "#00d060" },
-    LineNr = { fg = "#a0ffa0" },
-    CursorLineNr = { fg = "#ff8080" },
+    LineNr = { fg = "#d0d0d0" },
+    CursorLineNr = { fg = "cyan" },
     ColorColumn = { bg = "#303030" },
     TbLineBufOn = { fg = "white" },
     TbLineBufOff = { fg = "#b0b0b0" },
