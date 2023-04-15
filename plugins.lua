@@ -77,6 +77,7 @@ local plugins = {
 
   {
     "tpope/vim-fugitive",
+    lazy = false,
     cmd = "Git",
   },
 
