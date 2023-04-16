@@ -6,14 +6,24 @@ local M = {}
 
 ---@type Base46HLGroupsList
 M.override = {
-  Comment = {
-    italic = true,
-  },
+  Comment = { fg = "#00d060" },
+  ColorColumn = { bg = "#303030" },
+
+  CursorLineNr = { fg = "cyan" },
+  LineNr = { fg = "#d0d0d0" },
+
+  St_gitIcons = { fg = "#80ff80" },
+
+  TbLineBufOn = { fg = "white" },
+  TbLineBufOff = { fg = "#b0b0b0" },
+
+  Visual = { bg = "grey", fg = "#ffe5b4" },
+
+  NvimTreeOpenedFolderIcon = { fg = "green", bold = true },
+  NvimTreeOpenedFolderName = { fg = "green", bold = true },
 }
 
 ---@type HLTable
-M.add = {
-  -- NvimTreeOpenedFolderName = { fg = "green", bold = true },
-}
+M.add = {}
 
 return M
