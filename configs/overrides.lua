@@ -2,10 +2,31 @@ local M = {}
 
 M.treesitter = {
   ensure_installed = {
-    "bash", "cpp", "dart", "git_config", "git_rebase", "gitattributes", "gitcommit",
-    "gitignore", "go", "html", "javascript", "json", "lua", "markdown", "markdown_inline",
-    "python", "query", "regex", "rust", "scala", "terraform", "tsx", "typescript",
-    "vim", "yaml",
+    "bash",
+    "cpp",
+    "dart",
+    "git_config",
+    "git_rebase",
+    "gitattributes",
+    "gitcommit",
+    "gitignore",
+    "go",
+    "html",
+    "javascript",
+    "json",
+    "lua",
+    "markdown",
+    "markdown_inline",
+    "python",
+    "query",
+    "regex",
+    "rust",
+    "scala",
+    "terraform",
+    "tsx",
+    "typescript",
+    "vim",
+    "yaml",
   },
   indent = {
     enable = true,
@@ -17,10 +38,25 @@ M.treesitter = {
 
 M.mason = {
   ensure_installed = {
-    "bash-debug-adapter", "bash-language-server", "clang-format",
-    "clangd", "cmake-language-server", "codelldb", "cpplint", "cpptools",
-    "flake8", "gopls", "json-lsp", "lua-language-server", "pyright",
-    "rust-analyzer", "rustfmt", "shfmt", "stylua", "terraform-ls", "tflint",
+    "bash-debug-adapter",
+    "bash-language-server",
+    "clang-format",
+    "clangd",
+    "cmake-language-server",
+    "codelldb",
+    "cpplint",
+    "cpptools",
+    "flake8",
+    "gopls",
+    "json-lsp",
+    "lua-language-server",
+    "pyright",
+    "rust-analyzer",
+    "rustfmt",
+    "shfmt",
+    "stylua",
+    "terraform-ls",
+    "tflint",
   },
 }
 
@@ -42,6 +78,12 @@ M.nvimtree = {
   view = {
     signcolumn = "yes",
     width = 25,
+  },
+
+  actions = {
+    open_file = {
+      resize_window = false,
+    },
   },
 
   renderer = {
