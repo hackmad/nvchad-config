@@ -4,7 +4,14 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 local servers = {
-  "cssls", "clangd", "dartls", "html", "gopls", "pyright", "rust_analyzer", "terraformls",
+  "cssls",
+  "clangd",
+  "dartls",
+  "html",
+  "gopls",
+  "pyright",
+  "rust_analyzer",
+  "terraformls",
 }
 
 for _, lsp in ipairs(servers) do
@@ -42,6 +49,8 @@ require("noice").setup {
           { event = "msg_show", kind = "", find = "Modified" },
           { event = "msg_show", kind = "", find = "[0-9]+L, [0-9]+B" },
           { event = "msg_show", kind = "", find = "line [0-9]+ of [0-9]+" },
+          { event = "msg_show", kind = "", find = "Scratch" },
+          { event = "msg_show", kind = "", find = "No lines in buffer" },
         },
       },
       opts = { skip = true },
