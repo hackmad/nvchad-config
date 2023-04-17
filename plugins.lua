@@ -226,6 +226,16 @@ local plugins = {
     -- config for noice is in lspconfig so signature/hover won't conflict with nvchad
   },
 
+  {
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
+  },
+
   -- Disable plugins
   -- {
   --   "NvChad/nvim-colorizer.lua",
