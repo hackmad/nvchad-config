@@ -76,6 +76,15 @@ local plugins = {
   },
 
   {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    lazy = false,
+    build = "make",
+    config = function()
+      require("telescope").load_extension "fzf"
+    end,
+  },
+
+  {
     "tpope/vim-fugitive",
     lazy = false,
     cmd = "Git",
