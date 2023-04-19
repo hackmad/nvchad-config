@@ -203,36 +203,11 @@ local plugins = {
   },
 
   {
-    "rcarriga/nvim-notify",
+    "j-hui/fidget.nvim",
     lazy = false,
     config = function()
-      local notify = require "notify"
-      notify.setup {
-        stages = "static",
-      }
-      vim.notify = notify
+      require("fidget").setup {}
     end,
-  },
-  {
-    "mrded/nvim-lsp-notify",
-    dependencies = {
-      "rcarriga/nvim-notify",
-    },
-    config = function()
-      require("lsp-notify").setup {
-        icons = false,
-      }
-    end,
-  },
-
-  { "MunifTanjim/nui.nvim" },
-  {
-    "folke/noice.nvim",
-    lazy = false,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-    },
-    -- config for noice is in lspconfig so signature/hover won't conflict with nvchad
   },
 
   {
