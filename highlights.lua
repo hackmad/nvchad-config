@@ -24,6 +24,9 @@ M.override = {
 }
 
 ---@type HLTable
-M.add = {}
+M.add = {
+  FidgetTitle = { fg = "#e0a0a0" },
+  FidgetTask = { fg = "#e0e0a0" },
+}
 
 return M

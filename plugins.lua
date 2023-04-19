@@ -206,7 +206,14 @@ local plugins = {
     "j-hui/fidget.nvim",
     lazy = false,
     config = function()
-      require("fidget").setup {}
+      require("fidget").setup {
+        text = {
+          spinner = "moon",
+          done = "✔",
+          commenced = "Started",
+          completed = "Completed",
+        },
+      }
     end,
   },
 
