@@ -213,6 +213,9 @@ local plugins = {
           commenced = "Started",
           completed = "Completed",
         },
+        window = {
+          blend = 50,
+        },
       }
     end,
   },
