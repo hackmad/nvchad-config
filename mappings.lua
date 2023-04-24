@@ -10,7 +10,6 @@ M.buffer = {
       end,
       "clear search highlight",
     },
-
     -- cycle buffers.
     ["<S-h>"] = {
       function()
@@ -60,6 +59,13 @@ M.trouble = {
     ["<leader>xd"] = { "<cmd>TroubleToggle document_diagnostics<cr>", "document diagnostics" },
     ["<leader>xl"] = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
     ["<leader>xq"] = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
+  },
+}
+
+M.telescope = {
+  n = {
+    ["<leader>fr"] = { "<cmd>Telescope resume<cr>", "resume last picker" },
+    ["<leader>fp"] = { "<cmd>Telescope pickers<cr>", "previous pickers" },
   },
 }
 

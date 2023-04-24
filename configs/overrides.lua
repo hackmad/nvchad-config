@@ -64,37 +64,30 @@ M.nvimtree = {
   git = {
     enable = true,
   },
-
   filters = {
     dotfiles = false,
   },
-
   modified = {
     enable = true,
     show_on_dirs = true,
     show_on_open_dirs = true,
   },
-
   view = {
     signcolumn = "yes",
     width = 25,
   },
-
   actions = {
     open_file = {
       resize_window = false,
     },
   },
-
   renderer = {
     highlight_git = true,
     highlight_opened_files = "icon",
     highlight_modified = "icon",
-
     icons = {
       webdev_colors = true,
       git_placement = "signcolumn",
-
       show = {
         file = true,
         folder = true,

@@ -28,10 +28,21 @@ local plugins = {
     end,
   },
 
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      defaults = {
+        cache_picker = {
+          num_pickers = 10,
+        },
+      },
+    },
+  },
+
   -- Override plugin configs
-  { "williamboman/mason.nvim", opts = overrides.mason },
+  { "williamboman/mason.nvim",         opts = overrides.mason },
   { "nvim-treesitter/nvim-treesitter", opts = overrides.treesitter },
-  { "nvim-tree/nvim-tree.lua", opts = overrides.nvimtree },
+  { "nvim-tree/nvim-tree.lua",         opts = overrides.nvimtree },
 
   -- Install plugins
   {
@@ -69,7 +80,7 @@ local plugins = {
         json = { "pair" },
         yaml = { "block_mapping_pair" },
       },
-      zindex = 20, -- The Z-index of the context window
+      zindex = 20,     -- The Z-index of the context window
       mode = "cursor", -- Line used to calculate context. Choices: "cursor", "topline"
       separator = nil,
     },
