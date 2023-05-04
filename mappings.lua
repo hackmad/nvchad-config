@@ -23,6 +23,15 @@ M.buffer = {
       end,
       "goto next buffer",
     },
+    -- create/close buffers
+    ["<leader>bn"] = { "<cmd>enew<cr>", "new buffer" },
+    ["<leader>bx"] = {
+      function()
+        require("nvchad_ui.tabufline").close_buffer()
+      end,
+      "close current buffers",
+    },
+    ["<leader>bX"] = { "<cmd>bufdo bwipeout<cr>", "close all buffers" },
   },
 }
 
@@ -75,6 +84,9 @@ M.disabled = {
     -- which breaks jumplist navigation. So disable <tab>/<S-tab> and map something else in `M.buffers`.
     ["<tab>"] = "",
     ["<S-tab>"] = "",
+    -- remapped buffer shortcuts
+    ["<leader>b"] = "",
+    ["<leader>x"] = "",
   },
 }
 
