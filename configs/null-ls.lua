@@ -6,6 +6,7 @@ local sources = {
   null_ls.builtins.formatting.rustfmt,
   null_ls.builtins.formatting.scalafmt,
   null_ls.builtins.formatting.stylua,
+  null_ls.builtins.formatting.terraform_fmt,
 
   null_ls.builtins.code_actions.gitsigns,
 

@@ -129,8 +129,6 @@ local plugins = {
     build = ":call mkdp#util#install()",
   },
 
-  { "hashivim/vim-terraform" },
-
   {
     "scalameta/nvim-metals",
     dependencies = {

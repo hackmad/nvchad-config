@@ -4,19 +4,23 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 local servers = {
-  "cssls",
-  "clangd",
-  "dartls",
-  "html",
-  "gopls",
-  "pyright",
-  "rust_analyzer",
-  "terraformls",
+  cssls = {},
+  clangd = {},
+  dartls = {},
+  html = {},
+  gopls = {},
+  pyright = {},
+  rust_analyzer = {},
+  terraformls = {
+    filetypes = {
+      "terraform",
+      --"terraform-vars",
+    },
+  },
 }
 
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+for lsp, cfg in pairs(servers) do
+  cfg.on_attach = on_attach
+  cfg.capabilities = capabilities
+  lspconfig[lsp].setup(cfg)
 end
