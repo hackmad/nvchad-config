@@ -40,9 +40,9 @@ local plugins = {
   },
 
   -- Override plugin configs
-  { "williamboman/mason.nvim",         opts = overrides.mason },
+  { "williamboman/mason.nvim", opts = overrides.mason },
   { "nvim-treesitter/nvim-treesitter", opts = overrides.treesitter },
-  { "nvim-tree/nvim-tree.lua",         opts = overrides.nvimtree },
+  { "nvim-tree/nvim-tree.lua", opts = overrides.nvimtree },
 
   -- Install plugins
   {
@@ -80,7 +80,7 @@ local plugins = {
         json = { "pair" },
         yaml = { "block_mapping_pair" },
       },
-      zindex = 20,     -- The Z-index of the context window
+      zindex = 20, -- The Z-index of the context window
       mode = "cursor", -- Line used to calculate context. Choices: "cursor", "topline"
       separator = nil,
     },
@@ -237,6 +237,48 @@ local plugins = {
       require("nvim-surround").setup {
         -- Configuration here, or leave empty to use defaults
       }
+    end,
+  },
+
+  {
+    "rcarriga/nvim-dap-ui",
+    event = "BufRead",
+    dependencies = "mfussenegger/nvim-dap",
+    enabled = vim.fn.has "win32" == 0,
+    config = function()
+      require "custom.configs.dapui"
+    end,
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    event = "BufRead",
+    dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
+    enabled = vim.fn.has "win32" == 0,
+    config = function()
+      require "custom.configs.mason_dap"
+    end,
+  },
+
+  {
+    "simrat39/rust-tools.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "mfussenegger/nvim-dap",
+      "neovim/nvim-lspconfig",
+    },
+  },
+
+  {
+    "mfussenegger/nvim-dap-python",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "mfussenegger/nvim-dap",
+      "neovim/nvim-lspconfig",
+    },
+    config = function()
+      require("dap-python").setup "~/.virtualenvs/debugpy/bin/python"
     end,
   },
 

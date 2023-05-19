@@ -78,6 +78,41 @@ M.telescope = {
   },
 }
 
+M.debugger = {
+  n = {
+    ["<F5>"] = {
+      function()
+        require("dap").continue()
+      end,
+      "continue",
+    },
+    ["<F10>"] = {
+      function()
+        require("dap").step_over()
+      end,
+      "step over",
+    },
+    ["<F11>"] = {
+      function()
+        require("dap").step_into()
+      end,
+      "step into",
+    },
+    ["<F12>"] = {
+      function()
+        require("dap").step_out()
+      end,
+      "step out",
+    },
+    ["<leader>db"] = {
+      function()
+        require("dap").toggle_breakpoint()
+      end,
+      "toggle breakpoint",
+    },
+  },
+}
+
 M.disabled = {
   n = {
     -- core/mappings.lua overrides <tab> to cycle buffers which automatically maps <C-i> as well.
