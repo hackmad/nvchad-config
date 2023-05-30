@@ -40,9 +40,9 @@ local plugins = {
   },
 
   -- Override plugin configs
-  { "williamboman/mason.nvim", opts = overrides.mason },
+  { "williamboman/mason.nvim",         opts = overrides.mason },
   { "nvim-treesitter/nvim-treesitter", opts = overrides.treesitter },
-  { "nvim-tree/nvim-tree.lua", opts = overrides.nvimtree },
+  { "nvim-tree/nvim-tree.lua",         opts = overrides.nvimtree },
 
   -- Install plugins
   {
@@ -80,7 +80,7 @@ local plugins = {
         json = { "pair" },
         yaml = { "block_mapping_pair" },
       },
-      zindex = 20, -- The Z-index of the context window
+      zindex = 20,     -- The Z-index of the context window
       mode = "cursor", -- Line used to calculate context. Choices: "cursor", "topline"
       separator = nil,
     },
@@ -145,6 +145,23 @@ local plugins = {
       }
 
       metals_config.init_options.statusBarProvider = "on"
+      metals_config.handlers["metals/status"] = function(_, status, ctx)
+        -- https://github.com/scalameta/nvim-metals/blob/main/lua/metals/status.lua#L36-L50
+        local val = {}
+        if status.hide then
+          val = { kind = "end" }
+        elseif status.show then
+          val = { kind = "begin", message = status.text }
+        elseif status.text then
+          val = { kind = "report", message = status.text }
+        else
+          return
+        end
+        local info = { client_id = ctx.client_id }
+        local msg = { token = "metals", value = val }
+        -- call fidget progress handler
+        vim.lsp.handlers["$/progress"](nil, msg, info)
+      end
 
       metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -371,7 +388,7 @@ local plugins = {
         vim.fn.glob(
           vim.fn.expand(
             "$HOME"
-              .. "/Software/java-debug//com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar",
+            .. "/Software/java-debug//com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar",
             1
           )
         ),

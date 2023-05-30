@@ -19,30 +19,6 @@ local servers = {
       --"terraform-vars",
     },
   },
-  metals = {
-    init_options = {
-      statusBarProvider = "on",
-    },
-    handlers = {
-      ["metals/status"] = function(_, status, ctx)
-        -- https://github.com/scalameta/nvim-metals/blob/main/lua/metals/status.lua#L36-L50
-        local val = {}
-        if status.hide then
-          val = { kind = "end" }
-        elseif status.show then
-          val = { kind = "begin", message = status.text }
-        elseif status.text then
-          val = { kind = "report", message = status.text }
-        else
-          return
-        end
-        local info = { client_id = ctx.client_id }
-        local msg = { token = "metals", value = val }
-        -- call fidget progress handler
-        vim.lsp.handlers["$/progress"](nil, msg, info)
-      end,
-    },
-  },
 }
 
 for lsp, cfg in pairs(servers) do
