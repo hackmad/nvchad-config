@@ -40,9 +40,9 @@ local plugins = {
   },
 
   -- Override plugin configs
-  { "williamboman/mason.nvim",         opts = overrides.mason },
+  { "williamboman/mason.nvim", opts = overrides.mason },
   { "nvim-treesitter/nvim-treesitter", opts = overrides.treesitter },
-  { "nvim-tree/nvim-tree.lua",         opts = overrides.nvimtree },
+  { "nvim-tree/nvim-tree.lua", opts = overrides.nvimtree },
 
   -- Install plugins
   {
@@ -80,7 +80,7 @@ local plugins = {
         json = { "pair" },
         yaml = { "block_mapping_pair" },
       },
-      zindex = 20,     -- The Z-index of the context window
+      zindex = 20, -- The Z-index of the context window
       mode = "cursor", -- Line used to calculate context. Choices: "cursor", "topline"
       separator = nil,
     },
@@ -95,11 +95,7 @@ local plugins = {
     end,
   },
 
-  {
-    "tpope/vim-fugitive",
-    lazy = false,
-    cmd = "Git",
-  },
+  { "tpope/vim-fugitive", event = "VeryLazy", cmd = "Git" },
 
   { "cdelledonne/vim-cmake" },
 
@@ -109,7 +105,7 @@ local plugins = {
   { "natebosch/vim-lsc-dart" },
   {
     "akinsho/flutter-tools.nvim",
-    lazy = false, -- TODO automatically detect Flutter projects and load it.
+    event = "VeryLazy", -- TODO automatically detect Flutter projects and load it.
     dependencies = {
       "nvim-lua/plenary.nvim",
       "dart-lang/dart-vim-plugin",
@@ -213,7 +209,7 @@ local plugins = {
 
   {
     "nvim-pack/nvim-spectre",
-    lazy = false,
+    event = "VeryLazy",
     config = function()
       require("spectre").setup()
     end,
@@ -235,7 +231,8 @@ local plugins = {
 
   {
     "j-hui/fidget.nvim",
-    lazy = false,
+    tag = "legacy",
+    event = "VeryLazy",
     config = function()
       require("fidget").setup {
         text = {
@@ -282,7 +279,7 @@ local plugins = {
 
   {
     "simrat39/rust-tools.nvim",
-    lazy = false,
+    event = "VeryLazy",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "mfussenegger/nvim-dap",
@@ -292,7 +289,7 @@ local plugins = {
 
   {
     "mfussenegger/nvim-dap-python",
-    lazy = false,
+    event = "VeryLazy",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "mfussenegger/nvim-dap",
@@ -388,7 +385,7 @@ local plugins = {
         vim.fn.glob(
           vim.fn.expand(
             "$HOME"
-            .. "/Software/java-debug//com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar",
+              .. "/Software/java-debug//com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar",
             1
           )
         ),
