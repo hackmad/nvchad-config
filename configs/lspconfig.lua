@@ -9,6 +9,7 @@ local servers = {
   dartls = { on_attach = on_attach, capabilities = capabilities },
   html = { on_attach = on_attach, capabilities = capabilities },
   gopls = { on_attach = on_attach, capabilities = capabilities },
+  kotlin_language_server = { on_attach = on_attach, capabilities = capabilities },
   pyright = { on_attach = on_attach, capabilities = capabilities },
   rust_analyzer = { on_attach = on_attach, capabilities = capabilities },
   terraformls = {
